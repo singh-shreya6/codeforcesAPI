@@ -7,6 +7,7 @@ export class Home extends React.Component {
   constructor(props) {
 		super(props);
     this.state = {
+			problemSet: {}
     };
 	}
 
@@ -14,7 +15,7 @@ export class Home extends React.Component {
 
 	  return (
 			<div className="code_body">
-				Hello
+				PROBLEMSET
 			</div>
     );
 	}
