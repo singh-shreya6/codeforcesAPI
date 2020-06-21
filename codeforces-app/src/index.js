@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import './api-enm';
+import  get  from 'lodash/get';
+import  Problems from './problems';
 
 export class Home extends React.Component {
   constructor(props) {
@@ -12,16 +14,29 @@ export class Home extends React.Component {
 	}
 
   render(){
-
 	  return (
 			<div className="code_body">
-				PROBLEMSET
+				<h2>PROBLEMSET</h2>
+				<h3>10 Latest Problems</h3>
+				<br/>
+				<br/>
+				<Problems
+					problemSet = {this.state.problemSet}
+				/>
 			</div>
     );
 	}
 	componentDidMount(){
 		document.title = "Codeforces API";
-
+		fetch('https://codeforces.com/api/problemset.problems')
+		.then(results => {
+				return results.json();
+		}).then(data => {
+				const problems = get(data, 'result.problems', {});
+				this.setState({
+					problemSet: problems
+				});
+		});
 		
   }
 }
