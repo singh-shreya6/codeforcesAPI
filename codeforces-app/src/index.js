@@ -16,10 +16,6 @@ export class Home extends React.Component {
   render(){
 	  return (
 			<div className="code_body">
-				<h2>PROBLEMSET</h2>
-				<h3>10 Latest Problems</h3>
-				<br/>
-				<br/>
 				<Problems
 					problemSet = {this.state.problemSet}
 				/>
