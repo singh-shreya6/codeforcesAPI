@@ -19,10 +19,13 @@ export class Home extends React.Component {
   render(){
 	  return (
 			<div className="code_body">
-				 <Navbar bg="dark" variant="dark" fixed="top">
-						<Navbar.Brand href="#home">YourOJ</Navbar.Brand>
-						<Nav className="mr-auto">
-						</Nav>
+				 <Navbar bg="dark" variant="dark">
+					<Navbar.Brand href="#home">Online Judge</Navbar.Brand>
+					<Nav>
+					<Nav.Link href="/top10">Top 10</Nav.Link>
+					<Nav.Link href="/trackA">Track A</Nav.Link>
+					<Nav.Link href="/trackB">Track B</Nav.Link>
+					</Nav>
   				</Navbar>	
 				<br/>
 				<br/>
