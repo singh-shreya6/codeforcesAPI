@@ -20,15 +20,11 @@ export class Home extends React.Component {
 	  return (
 			<div className="code_body">
 				 <Navbar bg="dark" variant="dark" fixed="top">
-						<Navbar.Brand href="#home">Navbar</Navbar.Brand>
+						<Navbar.Brand href="#home">YourOJ</Navbar.Brand>
 						<Nav className="mr-auto">
-							<Nav.Link href="#home">Home</Nav.Link>
-							<Nav.Link href="#features">Features</Nav.Link>
-							<Nav.Link href="#pricing">Pricing</Nav.Link>
 						</Nav>
   				</Navbar>	
-				<h2>PROBLEMSET</h2>
-				<h3>10 Latest Problems</h3>
+				<br/>
 				<br/>
 				<br/>
 				<Problems

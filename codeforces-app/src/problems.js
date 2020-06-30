@@ -1,5 +1,7 @@
 import React from 'react';
 import  isEmpty  from 'lodash/isEmpty';
+import  filter  from 'lodash/filter';
+import  forEach  from 'lodash/forEach';
 import Problem from './problem';
 
 class Problems extends React.Component {
@@ -9,7 +11,7 @@ class Problems extends React.Component {
         if (isEmpty(problems)) {
             return options;
         }
-        for (let i =0; i <100; i ++ ) {
+        for (let i =0; i <10; i ++ ) {
             options.push(
             <Problem 
                 problem = {problems[i]}
@@ -24,17 +26,15 @@ class Problems extends React.Component {
         if (isEmpty(problems)) {
             return options;
         }
-        for (let i = 0; i < problems.length; i ++ ) {
-            if(problems[i].index == 'A'){
-                allAProblems.push(problems[i]);
-            }
-        }
-        for (let i = 0; i < allAProblems.length; i ++ ) {
-             options.push(
-            <Problem 
-                 problem = {allAProblems[i]}
-            />)
-        }
+        allAProblems = filter(problems, problem => {
+            return problem.index === 'A';
+        });
+        forEach(allAProblems, problem => {
+            options.push(
+                <Problem 
+                    problem = {problem}
+            />);
+        });
         return options;
     }
     render(){
