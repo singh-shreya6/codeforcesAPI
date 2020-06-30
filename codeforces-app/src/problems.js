@@ -9,7 +9,7 @@ class Problems extends React.Component {
         if (isEmpty(problems)) {
             return options;
         }
-        for (let i =0; i <10; i ++ ) {
+        for (let i =0; i <100; i ++ ) {
             options.push(
             <Problem 
                 problem = {problems[i]}

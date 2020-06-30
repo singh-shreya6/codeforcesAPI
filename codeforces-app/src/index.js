@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './api-enm';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import  get  from 'lodash/get';
 import  Problems from './problems';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class Home extends React.Component {
   constructor(props) {
@@ -16,6 +19,14 @@ export class Home extends React.Component {
   render(){
 	  return (
 			<div className="code_body">
+				 <Navbar bg="dark" variant="dark" fixed="top">
+						<Navbar.Brand href="#home">Navbar</Navbar.Brand>
+						<Nav className="mr-auto">
+							<Nav.Link href="#home">Home</Nav.Link>
+							<Nav.Link href="#features">Features</Nav.Link>
+							<Nav.Link href="#pricing">Pricing</Nav.Link>
+						</Nav>
+  				</Navbar>	
 				<h2>PROBLEMSET</h2>
 				<h3>10 Latest Problems</h3>
 				<br/>
