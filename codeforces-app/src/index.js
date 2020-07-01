@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './api-enm';
 import Navbar from 'react-bootstrap/Navbar';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import  get  from 'lodash/get';
 import  Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import maxresdefault from './maxresdefault.jpg';
 
 export class Home extends React.Component {
   constructor(props) {
@@ -29,6 +32,16 @@ export class Home extends React.Component {
   				</Navbar>	
 				<br/>
 				<br/>
+				<Card style={{ width: '18rem'}}>
+				<Card.Img variant="top" src={maxresdefault} />
+				<Card.Body>
+					<Card.Title>Binary Search</Card.Title>
+					<Card.Text>
+					 Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+					</Card.Text>
+					<Button variant="primary">Start Solving!</Button>
+				</Card.Body>
+				</Card>
 				<br/>
 				<Problems
 					problemSet = {this.state.problemSet}
