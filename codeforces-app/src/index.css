@@ -6,3 +6,15 @@
   height: 100%;
   text-align: center;
 }
+.pointer__none {
+  pointer-events: none;
+  display: flex;
+}
+.activeClass {
+  color: aquamarine;
+}
+.card__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

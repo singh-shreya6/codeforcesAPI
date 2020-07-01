@@ -38,23 +38,28 @@ class Problems extends React.Component {
         return options;
     }
     render(){
+        if (this.props.isPageOpen === "0") {
         return (
-            <>
-              <div>
+            <div>
                 <h2>PROBLEMSET</h2>
 				<h3>10 Latest Problems</h3>
 				<br/>
                   {this.createProblemTable()}
                 <br/>
-                </div>
-                <div className="a_problems">
-				<br/>
-                <h3>All A problems</h3>
-				<br/>
-                  {this.createATable()}
-              </div>
-              </>
+            </div>
+                
       );
+        } else {
+            return (
+                <div className="a_problems">
+                    <h2>PROBLEMSET</h2>
+                    <br/>
+                    <h3>All A problems</h3>
+                    <br/>
+                      {this.createATable()}
+                  </div>
+          );
+        }
     }
 }
 
