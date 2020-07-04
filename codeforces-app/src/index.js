@@ -64,6 +64,12 @@ export class Home extends React.Component {
 	createTagsCardView() {
 		if (this.state.isPageOpen === "") {
 			return (
+				<>
+				<div>
+				<h3>Explore Topics</h3>
+				<br />
+				<br />
+				</div>
 				<div className="card__body">
 					<Card style={{ width: '20%' }}>
 						<Card.Img variant="top" src={maxresdefault} />
@@ -76,6 +82,7 @@ export class Home extends React.Component {
 						</Card.Body>
 					</Card>
 				</div>
+				</>
 			);
 		}
 	}
