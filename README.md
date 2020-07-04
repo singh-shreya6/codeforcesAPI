@@ -1,5 +1,4 @@
-# codeforcesAPI
-Online Judge
+# Online Judge
 
 Contributors -
 1. Shreya Singh
