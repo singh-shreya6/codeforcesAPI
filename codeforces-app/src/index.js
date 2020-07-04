@@ -25,7 +25,8 @@ export class Home extends React.Component {
 
 	changePageSelected(a) {
 		this.setState({
-			isPageOpen: a
+			isPageOpen: a,
+			isClicked: false
 		});
 	}
 
