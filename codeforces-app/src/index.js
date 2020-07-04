@@ -62,7 +62,7 @@ export class Home extends React.Component {
 	}
 
 	createTagsCardView() {
-		if (this.state.isPageOpen === "") {
+		if (this.state.isPageOpen === "" && this.state.isClicked === false) {
 			return (
 				<>
 				<div>
