@@ -1,8 +1,5 @@
 # codeforcesAPI
-Codeforces API
-
-Request URL for all problems:
-https://codeforces.com/api/problemset.problems
+Online Judge
 
 Contributors -
 1. Shreya Singh
