@@ -54,7 +54,7 @@ export class Home extends React.Component {
 
 	createTagsCardView() {
 		if (this.state.isPageOpen === "") {
-			return (
+		return (
 				<div className="card__body">
 					<Card style={{ width: '20%' }}>
 						<Card.Img variant="top" src={maxresdefault} />
@@ -91,7 +91,6 @@ export class Home extends React.Component {
 			</div>
 		);
 	}
-
 	componentDidMount() {
 		document.title = "Codeforces API";
 		fetch('https://codeforces.com/api/problemset.problems')
