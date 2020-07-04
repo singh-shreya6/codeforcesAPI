@@ -11,13 +11,15 @@ import Problems from './problems';
 import { Link, BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './maxresdefault.jpg';
+import ProblemsByTag from './problemsByTag';
 
 export class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			problemSet: {},
-			isPageOpen: ""
+			isPageOpen: "",
+			isClicked: false
 		};
 	}
 
@@ -26,6 +28,13 @@ export class Home extends React.Component {
 			isPageOpen: a
 		});
 	}
+
+	handleClick() {
+		this.setState({
+			isClicked: true
+		});
+	}
+
 
 	createNavBarView() {
 		return (
@@ -63,7 +72,7 @@ export class Home extends React.Component {
 							<Card.Text>
 								Binary Search is a search algorithm that finds the position of a target value within a sorted array.
 					</Card.Text>
-							<Button variant="primary">Start Solving!</Button>
+							<Button variant="primary" onClick={() => this.handleClick()}>Start Solving!</Button>
 						</Card.Body>
 					</Card>
 				</div>
@@ -80,6 +89,15 @@ export class Home extends React.Component {
 		);
 	}
 
+	createTagView() {
+		return (
+			<ProblemsByTag
+				problemSet={this.state.problemSet}
+				isClicked={this.state.isClicked}
+			/>
+		);
+	}
+
 	render() {
 
 
@@ -88,6 +106,7 @@ export class Home extends React.Component {
 				{this.createNavBarView()}
 				{this.createTagsCardView()}
 				{this.getTrackView()}
+				{this.createTagView()}
 			</div>
 		);
 	}

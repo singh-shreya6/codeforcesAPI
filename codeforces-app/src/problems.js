@@ -21,15 +21,15 @@ class Problems extends React.Component {
     }
     createTableBasedOnIndex(problemIndex) {
         let options = [];
-        let allAProblems = [];
+        let allFilteredProblems = [];
         let problems = this.props.problemSet;
         if (isEmpty(problems)) {
             return options;
         }
-        allAProblems = filter(problems, problem => {
+        allFilteredProblems = filter(problems, problem => {
             return problem.index === problemIndex;
         });
-        forEach(allAProblems, problem => {
+        forEach(allFilteredProblems, problem => {
             options.push(
                 <Problem
                     problem={problem}
