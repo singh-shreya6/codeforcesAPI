@@ -59,7 +59,7 @@ class Problems extends React.Component {
                     {this.createTableBasedOnIndex('A')}
                 </div>
             );
-        } else if (this.props.isPageOpen === "2"){
+        } else if (this.props.isPageOpen === "2") {
             return (
                 <div className="b_problems">
                     <h2>PROBLEMSET</h2>
