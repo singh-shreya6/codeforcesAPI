@@ -2,6 +2,7 @@
   "name": "codeforces-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://singh-shreya6.github.io/codeforcesAPI",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.1",
