@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import get from 'lodash/get';
 import Problems from './problems';
-import { Link, BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './maxresdefault.jpg';
 import ProblemsByTag from './problemsByTag';
