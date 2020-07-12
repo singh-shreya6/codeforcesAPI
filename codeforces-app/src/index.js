@@ -12,6 +12,7 @@ import { Link, BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './maxresdefault.jpg';
 import ProblemsByTag from './problemsByTag';
+import GoogleBtn from './GoogleBtn';
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -19,8 +20,17 @@ export class Home extends React.Component {
 		this.state = {
 			problemSet: {},
 			isPageOpen: "",
-			isClicked: false
+			isClicked: false,
+			isLogin: false,
+			name: ""
 		};
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
+		this.handleLoginFailure = this.handleLoginFailure.bind(this);
+		this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
+		/*this.setCookie = this.setCookie.bind(this);
+		this.getCookie = this.getCookie.bind(this);
+		this.checkCookie = this.checkCookie.bind(this);*/
 	}
 
 	changePageSelected(a) {
@@ -39,9 +49,9 @@ export class Home extends React.Component {
 
 	createNavBarView() {
 		return (
-			<Navbar bg="dark" variant="dark">
+			<Navbar bg="dark" variant="dark" fixed="top">
 				<Navbar.Brand href="/">Online Judge</Navbar.Brand>
-				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)}>
+				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)} className="navbar-links">
 					<Nav.Item>
 						<Nav.Link eventKey="0" href="#home">
 							Top 10
@@ -58,6 +68,18 @@ export class Home extends React.Component {
         			</Nav.Link>
 					</Nav.Item>
 				</Nav>
+				<div className="user_info">
+					{this.state.name ? <h5>Welcome {this.state.name}</h5> : null}
+
+				</div>
+				<GoogleBtn
+					isLogin={this.state.isLogin}
+					name={this.state.name}
+					login={this.login}
+					logout={this.logout}
+					handleLoginFailure={this.handleLoginFailure}
+					handleLogoutFailure={this.handleLogoutFailure}
+				/>
 			</Navbar>
 		);
 	}
@@ -66,23 +88,23 @@ export class Home extends React.Component {
 		if (this.state.isPageOpen === "" && this.state.isClicked === false) {
 			return (
 				<>
-				<div>
-				<h3>Explore Topics</h3>
-				<br />
-				<br />
-				</div>
-				<div className="card__body">
-					<Card style={{ width: '20%' }}>
-						<Card.Img variant="top" src={maxresdefault} />
-						<Card.Body>
-							<Card.Title>Binary Search</Card.Title>
-							<Card.Text>
-								Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+					<div>
+						<h3>Explore Topics</h3>
+						<br />
+						<br />
+					</div>
+					<div className="card__body">
+						<Card style={{ width: '20%' }}>
+							<Card.Img variant="top" src={maxresdefault} />
+							<Card.Body>
+								<Card.Title>Binary Search</Card.Title>
+								<Card.Text>
+									Binary Search is a search algorithm that finds the position of a target value within a sorted array.
 					</Card.Text>
-							<Button variant="primary" onClick={() => this.handleClick()}>Start Solving!</Button>
-						</Card.Body>
-					</Card>
-				</div>
+								<Button variant="primary" onClick={() => this.handleClick()}>Start Solving!</Button>
+							</Card.Body>
+						</Card>
+					</div>
 				</>
 			);
 		}
@@ -105,10 +127,69 @@ export class Home extends React.Component {
 			/>
 		);
 	}
+	/*
+	COOKIES FUNCTION NOT REQUIRED NOW
+
+	setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires="+d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+	  
+	  getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+		  var c = ca[i];
+		  while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		  }
+		  if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		  }
+		}
+		return "";
+	  }
+	  
+	  checkCookie() {
+		var user = this.getCookie("CF_UN");
+		if (user != "") {
+		  alert("Welcome again " + user);
+			this.setState({
+				isLogin: true,
+				name: user
+			});
+		} 
+	  }
+	
+	*/
+
+	login(response) {
+		if (response.accessToken) {
+			this.setState(state => ({
+				isLogin: true,
+				name: response.profileObj.givenName
+			}));
+		}
+	}
+
+	logout(response) {
+		this.setState(state => ({
+			isLogin: false,
+			name: ""
+		}));
+	}
+
+	handleLoginFailure(response) {
+		alert('Failed to log in')
+	}
+
+	handleLogoutFailure(response) {
+		alert('Failed to log out')
+	}
 
 	render() {
-
-
 		return (
 			<div className="code_body">
 				{this.createNavBarView()}
@@ -129,6 +210,7 @@ export class Home extends React.Component {
 					problemSet: problems
 				});
 			});
+		//	this.checkCookie(); TO BE USED when we need cookies
 
 	}
 }
