@@ -40,14 +40,13 @@ class Problems extends React.Component {
     render() {
         if (this.props.isPageOpen === "0") {
             return (
-                <div>
+                <div className="top_ten">
                     <h2>PROBLEMSET</h2>
                     <h3>10 Latest Problems</h3>
                     <br />
                     {this.createProblemTable()}
                     <br />
                 </div>
-
             );
         } else if (this.props.isPageOpen === "1") {
             return (
