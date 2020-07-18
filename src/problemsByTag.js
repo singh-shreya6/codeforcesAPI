@@ -24,13 +24,23 @@ class ProblemsByTag extends React.Component {
         return options;
     }
     render() {
-        if (this.props.isClicked === true) {
+        if (this.props.isClicked[0] === true) {
             return (
                 <div>
                     <h3>Explore Problems</h3>
                     <br />
                     <br />
                     {this.createTableBasedOnTag('binary search')}
+                    <br />
+                </div>
+            );
+        } else if (this.props.isClicked[1] === true) {
+            return (
+                <div>
+                    <h3>Explore Problems</h3>
+                    <br />
+                    <br />
+                    {this.createTableBasedOnTag('dp')}
                     <br />
                 </div>
             );

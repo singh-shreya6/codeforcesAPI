@@ -9,7 +9,8 @@ import Nav from 'react-bootstrap/Nav';
 import get from 'lodash/get';
 import Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import maxresdefault from './maxresdefault.jpg';
+import maxresdefault from './images/maxresdefault.jpg';
+import dynamic_programming from './images/dynamic_programming.png'
 import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
 
@@ -19,7 +20,7 @@ export class Home extends React.Component {
 		this.state = {
 			problemSet: {},
 			isPageOpen: "",
-			isClicked: false,
+			isClicked: [false, false],
 			isLogin: false,
 			name: ""
 		};
@@ -35,14 +36,20 @@ export class Home extends React.Component {
 	changePageSelected(a) {
 		this.setState({
 			isPageOpen: a,
-			isClicked: false
+			isClicked: [false, false]
 		});
 	}
 
-	handleClick() {
+	handleClick(index) {
+		let newVal = this.state.isClicked;
+		newVal[index] = true;
 		this.setState({
-			isClicked: true
+			isClicked: newVal
 		});
+	}
+
+	isNotClicked() {
+		return this.state.isClicked[0] === false && this.state.isClicked[1] === false;
 	}
 
 
@@ -84,7 +91,7 @@ export class Home extends React.Component {
 	}
 
 	createTagsCardView() {
-		if (this.state.isPageOpen === "" && this.state.isClicked === false) {
+		if (this.state.isPageOpen === "" && this.isNotClicked()) {
 			return (
 				<>
 					<div>
@@ -93,16 +100,26 @@ export class Home extends React.Component {
 						<br />
 					</div>
 					<div className="card__body">
-						<Card style={{ width: '20%' }}>
-							<Card.Img variant="top" src={maxresdefault} />
-							<Card.Body>
-								<Card.Title>Binary Search</Card.Title>
-								<Card.Text>
-									Binary Search is a search algorithm that finds the position of a target value within a sorted array.
-					</Card.Text>
-								<Button variant="primary" onClick={() => this.handleClick()}>Start Solving!</Button>
-							</Card.Body>
-						</Card>
+							<Card style={{ width: '20%' }}>
+								<Card.Img variant="top" src={maxresdefault} className="bs" />
+								<Card.Body>
+									<Card.Title>Binary Search</Card.Title>
+									<Card.Text>
+										Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+								</Card.Text>
+									<Button variant="primary" onClick={() => this.handleClick(0)}>Start Solving!</Button>
+								</Card.Body>
+							</Card>
+							<Card style={{ width: '20%' }}>
+								<Card.Img variant="top" src={dynamic_programming} className="dp" />
+								<Card.Body>
+									<Card.Title>Dynamic Programming</Card.Title>
+									<Card.Text>
+										A powerful algorithmic optimization technique utilising the result of smaller subproblems.
+								</Card.Text>
+									<Button variant="primary" onClick={() => this.handleClick(1)}>Start Solving!</Button>
+								</Card.Body>
+							</Card>
 					</div>
 				</>
 			);

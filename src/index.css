@@ -18,6 +18,14 @@
   text-align: center;
   margin-top: 5rem;
 }
+.bs{
+  height: 45%;
+  width: 100%;
+}
+.dp{
+  height: 45%;
+  width: 100%;
+}
 .pointer__none {
   pointer-events: none;
   display: flex;
