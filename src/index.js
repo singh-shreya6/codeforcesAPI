@@ -60,11 +60,6 @@ export class Home extends React.Component {
 				<Navbar.Brand href="/">Online Judge</Navbar.Brand>
 				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)} className="navbar-links">
 					<Nav.Item>
-						<Nav.Link eventKey="0" href="#home">
-							Top 10
-        			</Nav.Link>
-					</Nav.Item>
-					<Nav.Item>
 						<Nav.Link eventKey="1" href="#trackA">
 							Track A
         			</Nav.Link>

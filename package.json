@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://singh-shreya6.github.io/codeforcesAPI",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.1",
     "react": "next",

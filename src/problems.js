@@ -3,6 +3,7 @@ import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
 import forEach from 'lodash/forEach';
 import Problem from './problem';
+import CustomPaginationActionsTable from './table-view';
 
 class Problems extends React.Component {
     createProblemTable() {
@@ -12,10 +13,12 @@ class Problems extends React.Component {
             return options;
         }
         for (let i = 0; i < 10; i++) {
-            options.push(
-                <Problem
-                    problem={problems[i]}
-                />)
+            const name = <Problem
+                problem={problems[i]}
+            />;
+            options.push({
+                name
+            });
         }
         return options;
     }
@@ -29,13 +32,25 @@ class Problems extends React.Component {
         allFilteredProblems = filter(problems, problem => {
             return problem.index === problemIndex;
         });
+        let slNo = 0;
         forEach(allFilteredProblems, problem => {
-            options.push(
-                <Problem
-                    problem={problem}
-                />);
+            const name = <Problem
+                problem={problem}
+            />;
+            slNo++;
+            options.push({
+                name,
+                slNo,
+                solved: "YES"
+            });
         });
-        return options;
+        return (
+            <div className="code_table" >
+                <CustomPaginationActionsTable
+                    rows={options}
+                />
+            </div>
+        );
     }
     render() {
         if (this.props.isPageOpen === "0") {
