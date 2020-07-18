@@ -11,6 +11,7 @@ import Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './images/maxresdefault.jpg';
 import dynamic_programming from './images/dynamic_programming.png'
+import graph_theory from './images/graph_theory.jpg'
 import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
 
@@ -20,7 +21,7 @@ export class Home extends React.Component {
 		this.state = {
 			problemSet: {},
 			isPageOpen: "",
-			isClicked: [false, false],
+			isClicked: [false, false, false],
 			isLogin: false,
 			name: ""
 		};
@@ -36,7 +37,7 @@ export class Home extends React.Component {
 	changePageSelected(a) {
 		this.setState({
 			isPageOpen: a,
-			isClicked: [false, false]
+			isClicked: [false, false, false]
 		});
 	}
 
@@ -49,7 +50,7 @@ export class Home extends React.Component {
 	}
 
 	isNotClicked() {
-		return this.state.isClicked[0] === false && this.state.isClicked[1] === false;
+		return this.state.isClicked[0] === false && this.state.isClicked[1] === false && this.state.isClicked[2] === false;
 	}
 
 
@@ -100,26 +101,36 @@ export class Home extends React.Component {
 						<br />
 					</div>
 					<div className="card__body">
-							<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
-								<Card.Img variant="top" src={maxresdefault} className="bs" />
-								<Card.Body>
-									<Card.Title>Binary Search</Card.Title>
-									<Card.Text>
-										Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+						<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
+							<Card.Img variant="top" src={maxresdefault} className="bs" />
+							<Card.Body>
+								<Card.Title>Binary Search</Card.Title>
+								<Card.Text>
+									Binary Search is a search algorithm that finds the position of a target value within a sorted array.
 								</Card.Text>
-									<Button variant="primary" onClick={() => this.handleClick(0)}>Start Solving!</Button>
-								</Card.Body>
-							</Card>
-							<Card style={{ width: '20%' }}>
-								<Card.Img variant="top" src={dynamic_programming} className="dp" />
-								<Card.Body>
-									<Card.Title>Dynamic Programming</Card.Title>
-									<Card.Text>
-										A powerful algorithmic optimization technique utilising the result of smaller subproblems.
+								<Button variant="primary" onClick={() => this.handleClick(0)}>Start Solving!</Button>
+							</Card.Body>
+						</Card>
+						<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
+							<Card.Img variant="top" src={dynamic_programming} className="dp" />
+							<Card.Body>
+								<Card.Title>Dynamic Programming</Card.Title>
+								<Card.Text>
+									A powerful algorithmic optimization technique utilising the result of smaller subproblems.
 								</Card.Text>
-									<Button variant="primary" onClick={() => this.handleClick(1)}>Start Solving!</Button>
-								</Card.Body>
-							</Card>
+								<Button variant="primary" onClick={() => this.handleClick(1)}>Start Solving!</Button>
+							</Card.Body>
+						</Card>
+						<Card style={{ width: '20%' }}>
+							<Card.Img variant="top" src={graph_theory} className="graph" />
+							<Card.Body>
+								<Card.Title>Graph Theory</Card.Title>
+								<Card.Text>
+									A Graph is a non-linear data structure consisting of nodes and edges.
+								</Card.Text>
+								<Button variant="primary" onClick={() => this.handleClick(2)}>Start Solving!</Button>
+							</Card.Body>
+						</Card>
 					</div>
 				</>
 			);

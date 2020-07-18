@@ -26,6 +26,10 @@
   height: 45%;
   width: 100%;
 }
+.graph{
+  height: 45%;
+  width: 100%;
+}
 .pointer__none {
   pointer-events: none;
   display: flex;

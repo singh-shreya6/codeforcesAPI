@@ -44,6 +44,16 @@ class ProblemsByTag extends React.Component {
                     <br />
                 </div>
             );
+        }else if (this.props.isClicked[2] === true) {
+            return (
+                <div>
+                    <h3>Explore Problems</h3>
+                    <br />
+                    <br />
+                    {this.createTableBasedOnTag('graphs')}
+                    <br />
+                </div>
+            );
         } else{
             return (<div></div>);
         }
