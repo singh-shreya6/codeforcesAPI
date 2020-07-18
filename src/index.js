@@ -104,30 +104,36 @@ export class Home extends React.Component {
 						<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
 							<Card.Img variant="top" src={maxresdefault} className="bs" />
 							<Card.Body>
-								<Card.Title>Binary Search</Card.Title>
-								<Card.Text>
-									Binary Search is a search algorithm that finds the position of a target value within a sorted array.
-								</Card.Text>
+								<div className="card_text">
+									<Card.Title>Binary Search</Card.Title>
+									<Card.Text>
+										Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+									</Card.Text>
+								</div>
 								<Button variant="primary" onClick={() => this.handleClick(0)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
 						<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
 							<Card.Img variant="top" src={dynamic_programming} className="dp" />
 							<Card.Body>
-								<Card.Title>Dynamic Programming</Card.Title>
-								<Card.Text>
-									A powerful algorithmic optimization technique utilising the result of smaller subproblems.
-								</Card.Text>
+								<div className="card_text">
+									<Card.Title>Dynamic Programming</Card.Title>
+									<Card.Text>
+										A powerful algorithmic optimization technique utilising the result of smaller subproblems.
+									</Card.Text>
+								</div>
 								<Button variant="primary" onClick={() => this.handleClick(1)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
 						<Card style={{ width: '20%' }}>
 							<Card.Img variant="top" src={graph_theory} className="graph" />
 							<Card.Body>
-								<Card.Title>Graph Theory</Card.Title>
-								<Card.Text>
-									A Graph is a non-linear data structure consisting of nodes and edges.
-								</Card.Text>
+								<div className="card_text">
+									<Card.Title>Graph Theory</Card.Title>
+									<Card.Text>
+										A Graph is a non-linear data structure consisting of nodes and edges.
+									</Card.Text>
+								</div>
 								<Button variant="primary" onClick={() => this.handleClick(2)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
