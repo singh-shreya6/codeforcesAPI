@@ -131,7 +131,7 @@ export class Home extends React.Component {
 								<div className="card_text">
 									<Card.Title>Graph Theory</Card.Title>
 									<Card.Text>
-										A Graph is a non-linear data structure consisting of nodes and edges.
+										A graph is a non-linear data structure of a set of objects where some pairs of the objects are in some sense related.
 									</Card.Text>
 								</div>
 								<Button variant="primary" onClick={() => this.handleClick(2)}>Start Solving!</Button>
