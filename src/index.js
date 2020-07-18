@@ -100,7 +100,7 @@ export class Home extends React.Component {
 						<br />
 					</div>
 					<div className="card__body">
-							<Card style={{ width: '20%' }}>
+							<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
 								<Card.Img variant="top" src={maxresdefault} className="bs" />
 								<Card.Body>
 									<Card.Title>Binary Search</Card.Title>
