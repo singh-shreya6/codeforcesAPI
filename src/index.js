@@ -57,7 +57,7 @@ export class Home extends React.Component {
 
 	createNavBarView() {
 		return (
-			<Navbar bg="dark" variant="dark" fixed="top"> 
+			<Navbar bg="dark" variant="dark" fixed="top">
 				<Navbar.Brand href="/">Online Judge</Navbar.Brand>
 				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)} className="navbar-links">
 					<NavDropdown title="Tracks" id="nav-dropdown">

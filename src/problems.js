@@ -56,8 +56,6 @@ class Problems extends React.Component {
         if (this.props.isPageOpen === "1") {
             return (
                 <div className="a_problems">
-                    <h2>PROBLEMSET</h2>
-                    <br />
                     <h3>All A problems</h3>
                     <br />
                     {this.createTableBasedOnIndex('A')}
@@ -66,8 +64,6 @@ class Problems extends React.Component {
         } else if (this.props.isPageOpen === "2") {
             return (
                 <div className="b_problems">
-                    <h2>PROBLEMSET</h2>
-                    <br />
                     <h3>All B problems</h3>
                     <br />
                     {this.createTableBasedOnIndex('B')}
@@ -76,8 +72,6 @@ class Problems extends React.Component {
         } else if (this.props.isPageOpen === "3") {
             return (
                 <div className="c_problems">
-                    <h2>PROBLEMSET</h2>
-                    <br />
                     <h3>All C problems</h3>
                     <br />
                     {this.createTableBasedOnIndex('C')}
@@ -86,8 +80,6 @@ class Problems extends React.Component {
         } else if (this.props.isPageOpen === "4") {
             return (
                 <div className="d_problems">
-                    <h2>PROBLEMSET</h2>
-                    <br />
                     <h3>All D problems</h3>
                     <br />
                     {this.createTableBasedOnIndex('D')}
@@ -97,8 +89,6 @@ class Problems extends React.Component {
         else if (this.props.isPageOpen === "5") {
             return (
                 <div className="e_problems">
-                    <h2>PROBLEMSET</h2>
-                    <br />
                     <h3>All E problems</h3>
                     <br />
                     {this.createTableBasedOnIndex('E')}
