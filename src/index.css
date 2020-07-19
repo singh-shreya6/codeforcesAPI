@@ -59,3 +59,16 @@
   margin-left: 10%;
   width: 80%;
 }
+
+.code_header {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.code_tableHeader {
+  float: left;
+}
+
+.code_editButton {
+  float: right;
+}

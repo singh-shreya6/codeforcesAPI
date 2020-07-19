@@ -14,6 +14,8 @@ import dynamic_programming from './images/dynamic_programming.png'
 import graph_theory from './images/graph_theory.jpg'
 import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
+import NewButton from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -23,12 +25,15 @@ export class Home extends React.Component {
 			isPageOpen: "",
 			isClicked: [false, false, false],
 			isLogin: false,
-			name: ""
+			name: "",
+			isEditModalOpen: false
 		};
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
 		this.handleLoginFailure = this.handleLoginFailure.bind(this);
 		this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
+		this.handleCloseEditModal = this.handleCloseEditModal.bind(this);
+		this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
 		/*this.setCookie = this.setCookie.bind(this);
 		this.getCookie = this.getCookie.bind(this);
 		this.checkCookie = this.checkCookie.bind(this);*/
@@ -147,11 +152,26 @@ export class Home extends React.Component {
 		);
 	}
 
+	handleCloseEditModal() {
+		this.setState({
+			isEditModalOpen: false
+		});
+	}
+
+	handleOpenEditModal() {
+		this.setState({
+			isEditModalOpen: true
+		});
+	}
+
 	createTagView() {
 		return (
 			<ProblemsByTag
 				problemSet={this.state.problemSet}
 				isClicked={this.state.isClicked}
+				isEditModalOpen={this.state.isEditModalOpen}
+				handleCloseEditModal={this.handleCloseEditModal}
+				handleOpenEditModal={this.handleOpenEditModal}
 			/>
 		);
 	}

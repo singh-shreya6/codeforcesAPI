@@ -43,9 +43,11 @@ class ProblemsByTag extends React.Component {
                     <h3>Explore Problems</h3>
                     <br />
                     <br />
-                    <h3>
-                        BINARY SEARCH
+                    <div className="code_header">
+                        <h3 className="code_tableHeader">
+                            BINARY SEARCH
                     </h3>
+                    </div>
                     <br />
                     {this.createTableBasedOnTag('binary search')}
                     <br />
@@ -57,9 +59,11 @@ class ProblemsByTag extends React.Component {
                     <h3>Explore Problems</h3>
                     <br />
                     <br />
-                    <h3>
-                        DYNAMIC PROGRAMMING
+                    <div className="code_header">
+                        <h3 className="code_tableHeader">
+                            DYNAMIC PROGRAMMING
                     </h3>
+                    </div>
                     <br />
                     {this.createTableBasedOnTag('dp')}
                     <br />
@@ -71,9 +75,11 @@ class ProblemsByTag extends React.Component {
                     <h3>Explore Problems</h3>
                     <br />
                     <br />
-                    <h3>
-                        GRAPHS
+                    <div className="code_header">
+                        <h3 className="code_tableHeader">
+                            GRAPHS
                     </h3>
+                    </div>
                     <br />
                     {this.createTableBasedOnTag('graphs')}
                     <br />
