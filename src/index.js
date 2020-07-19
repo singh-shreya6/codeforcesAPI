@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import get from 'lodash/get';
 import Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,19 +62,16 @@ export class Home extends React.Component {
 
 	createNavBarView() {
 		return (
-			<Navbar bg="dark" variant="dark" fixed="top">
+			<Navbar bg="dark" variant="dark" fixed="top"> 
 				<Navbar.Brand href="/">Online Judge</Navbar.Brand>
 				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)} className="navbar-links">
-					<Nav.Item>
-						<Nav.Link eventKey="1" href="#trackA">
-							Track A
-        			</Nav.Link>
-					</Nav.Item>
-					<Nav.Item>
-						<Nav.Link eventKey="2" href="#trackB" >
-							Track B
-        			</Nav.Link>
-					</Nav.Item>
+					<NavDropdown title="Tracks" id="nav-dropdown">
+						<NavDropdown.Item eventKey="1">Track A</NavDropdown.Item>
+						<NavDropdown.Item eventKey="2">Track B</NavDropdown.Item>
+						<NavDropdown.Item eventKey="3">Track C</NavDropdown.Item>
+						<NavDropdown.Item eventKey="4">Track D</NavDropdown.Item>
+						<NavDropdown.Item eventKey="5">Track E</NavDropdown.Item>
+					</NavDropdown>
 				</Nav>
 				<div className="user_info">
 					{this.state.name ? <h5>Welcome {this.state.name}</h5> : null}
