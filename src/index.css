@@ -1,51 +1,76 @@
 .code_body {
-  height: 100%;
-  text-align: center;
-  font-family: cursive;
+    height: 100%;
+    text-align: center;
+    font-family: cursive;
 }
-.a_problems, .b_problems, .c_problems,.d_problems,.e_problems {
-  height: 100%;
-  text-align: center;
-  margin-top: 5rem;
+
+.a_problems, .b_problems, .c_problems, .d_problems, .e_problems {
+    height: 100%;
+    text-align: center;
+    margin-top: 5rem;
 }
-.bs{
-  height: 45%;
-  width: 100%;
+
+.handle {
+    margin-top: 5rem;
+    text-align: center;
+    display: inline-block;
 }
-.dp{
-  height: 45%;
-  width: 100%;
+
+.handle_btn {
+    background-image: linear-gradient(to right,rgb(21, 150, 133), rgb(22, 96, 105));
+    color: white !important;
 }
-.graph{
-  height: 45%;
-  width: 100%;
+
+.mb-3 {
+    width: 100% !important;
 }
+
+.bs {
+    height: 45%;
+    width: 100%;
+}
+
+.dp {
+    height: 45%;
+    width: 100%;
+}
+
+.graph {
+    height: 45%;
+    width: 100%;
+}
+
 .pointer__none {
-  pointer-events: none;
-  display: flex;
+    pointer-events: none;
+    display: flex;
 }
+
 .activeClass {
-  color: aquamarine;
+    color: aquamarine;
 }
+
 .card__body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
 .navbar-links {
-  width: 60%;
+    width: 60%;
 }
+
 .user_info {
-  width: 30%;
-  margin-right: 2rem;
-  text-align: right;
-  color: wheat;
+    width: 30%;
+    margin-right: 2rem;
+    text-align: right;
+    color: wheat;
 }
+
 .card_text {
-  height: 80%;
+    height: 80%;
 }
 
 .code_table {
-  margin-left: 10%;
-  width: 80%;
+    margin-left: 10%;
+    width: 80%;
 }

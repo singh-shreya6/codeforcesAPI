@@ -11,10 +11,11 @@ import get from 'lodash/get';
 import Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './images/maxresdefault.jpg';
-import dynamic_programming from './images/dynamic_programming.png'
-import graph_theory from './images/graph_theory.jpg'
+import dynamic_programming from './images/dynamic_programming.png';
+import graph_theory from './images/graph_theory.jpg';
 import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
+import SearchPage from './searchPage';
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -67,6 +68,11 @@ export class Home extends React.Component {
 						<NavDropdown.Item eventKey="4">Track D</NavDropdown.Item>
 						<NavDropdown.Item eventKey="5">Track E</NavDropdown.Item>
 					</NavDropdown>
+					<Nav.Item>
+						<Nav.Link eventKey="6" href="#profiles">
+							Profile Tracker
+        				</Nav.Link>
+					</Nav.Item>
 				</Nav>
 				<div className="user_info">
 					{this.state.name ? <h5>Welcome {this.state.name}</h5> : null}
@@ -134,6 +140,14 @@ export class Home extends React.Component {
 				</>
 			);
 		}
+	}
+
+	getSearchPage() {
+		return (
+			<SearchPage
+				isPageOpen={this.state.isPageOpen}
+			/>
+		);
 	}
 
 	getTrackView() {
@@ -221,6 +235,7 @@ export class Home extends React.Component {
 				{this.createNavBarView()}
 				{this.createTagsCardView()}
 				{this.getTrackView()}
+				{this.getSearchPage()}
 				{this.createTagView()}
 			</div>
 		);
