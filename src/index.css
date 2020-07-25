@@ -12,6 +12,7 @@
 
 .search_bar {
     margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 .handle_btn {
@@ -71,4 +72,10 @@
 .code_table {
     margin-left: 10%;
     width: 80%;
+}
+
+.handle_textbox {
+  display: inline-flex !important;
+  width: 15rem !important;
+  margin-left: 1rem;
 }

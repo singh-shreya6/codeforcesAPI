@@ -52,12 +52,12 @@ class SearchPage extends React.Component {
                                 <Card.Text>
                                     Rank: {user.rank.charAt(0).toUpperCase() +
                                         user.rank.slice(1)}<br />
-                                Rating: {user.rating}<br />
-                                Country: {user.country}<br />
-                                Maximum Rank: {user.maxRank.charAt(0).toUpperCase() +
+                                    Rating: {user.rating}<br />
+                                    Country: {user.country}<br />
+                                    Maximum Rank: {user.maxRank.charAt(0).toUpperCase() +
                                         user.maxRank.slice(1)}<br />
-                                Friend of: {user.friendOfCount} users<br />
-                                Organisation: {user.organization}<br />
+                                    Friend of: {user.friendOfCount} users<br />
+                                    Organisation: {user.organization}<br />
 
                                 </Card.Text>
                             </div>
@@ -79,21 +79,24 @@ class SearchPage extends React.Component {
     render() {
         if (this.props.isPageOpen === "6") {
             return (
-                <div className="search_bar" >
-                    <label> Enter Codeforces Handle </label>
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Username"
-                            aria-label="Username"
-                            aria-describedby="basic-addon2"
-                            value={this.state.handle}
-                            onChange={e => this.handleOnTextChange(e)}
-                        />
-                        <InputGroup.Append>
-                            <Button variant="outline-secondary" className="handle_btn"
-                                onClick={() => this.fetchUserInfo()}>Go!</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
+                <div>
+                    <div className="search_bar" >
+                        <label> Enter Codeforces Handle:  </label>
+                        <InputGroup className="handle_textbox">
+                            <FormControl
+                                size="lg"
+                                placeholder="Username"
+                                aria-label="Username"
+                                aria-describedby="basic-addon2"
+                                value={this.state.handle}
+                                onChange={e => this.handleOnTextChange(e)}
+                            />
+                            <InputGroup.Append>
+                                <Button variant="outline-secondary" className="handle_btn"
+                                    onClick={() => this.fetchUserInfo()}>Go!</Button>
+                            </InputGroup.Append>
+                        </InputGroup>
+                    </div>
                     {this.displayProfile()}
                 </div>
             );
