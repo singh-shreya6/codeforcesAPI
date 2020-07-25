@@ -10,10 +10,8 @@
     margin-top: 5rem;
 }
 
-.handle {
+.search_bar {
     margin-top: 5rem;
-    text-align: center;
-    display: inline-block;
 }
 
 .handle_btn {
@@ -22,7 +20,7 @@
 }
 
 .mb-3 {
-    width: 100% !important;
+    width: 30% !important;
 }
 
 .bs {
