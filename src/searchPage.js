@@ -8,32 +8,36 @@ import get from 'lodash/get';
 class SearchPage extends React.Component {
     constructor(props) {
         super(props);
-        this.textInput = React.createRef();
         this.state = {
-            profile: {}
+            profile: {},
+            handle: ''        
         };
     }
 
     fetchUserInfo() {
-        const value = this.textInput.current.value
+        const value = this.state.handle;
         fetch('https://codeforces.com/api/user.info?handles=' + value)
             .then(results => {
                 return results.json();
             }).then(data => {
                 const user = get(data, 'result', {});
-                this.state.profile = ({
-                    profile: user
+                this.setState({
+                    profile: user[0]
                 });
             });
-        this.displayProfile();
     }
 
     displayProfile() {
         let user = this.state.profile;
-        console.log(user);
         return (
-            <p>Hello {user[0].handle}</p>
+            <p>Hello {user.handle}</p>
         );
+    }
+
+    handleOnTextChange(e) {
+        this.setState({
+            handle: e.target.value
+        });
     }
 
     render() {
@@ -43,16 +47,18 @@ class SearchPage extends React.Component {
                     <label> Enter Codeforces Handle </label>
                     <InputGroup className="mb-3">
                         <FormControl
-                            ref={this.textInput}
                             placeholder="Username"
                             aria-label="Username"
                             aria-describedby="basic-addon2"
+                            value={this.state.handle}
+                            onChange={e => this.handleOnTextChange(e)}
                         />
                         <InputGroup.Append>
                             <Button variant="outline-secondary" className="handle_btn"
                                 onClick={() => this.fetchUserInfo()}>Go!</Button>
                         </InputGroup.Append>
                     </InputGroup>
+                    {this.displayProfile()}
                 </div>
             );
         } else {
