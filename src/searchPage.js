@@ -84,7 +84,7 @@ class SearchPage extends React.Component {
                         <label> Enter Codeforces Handle:  </label>
                         <InputGroup className="handle_textbox">
                             <FormControl
-                                size="lg"
+                                size="sm"
                                 placeholder="Username"
                                 aria-label="Username"
                                 aria-describedby="basic-addon2"
@@ -92,7 +92,7 @@ class SearchPage extends React.Component {
                                 onChange={e => this.handleOnTextChange(e)}
                             />
                             <InputGroup.Append>
-                                <Button variant="outline-secondary" className="handle_btn"
+                                <Button variant="outline-secondary" className="handle_btn" size="sm"
                                     onClick={() => this.fetchUserInfo()}>Go!</Button>
                             </InputGroup.Append>
                         </InputGroup>
