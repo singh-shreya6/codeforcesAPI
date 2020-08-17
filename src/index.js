@@ -26,7 +26,8 @@ export class Home extends React.Component {
 			isClicked: [false, false, false],
 			isLogin: false,
 			name: "",
-			isEditModalOpen: false
+			isEditModalOpen: false,
+			email: ""
 		};
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
@@ -224,10 +225,12 @@ export class Home extends React.Component {
 	*/
 
 	login(response) {
+		console.log(response);
 		if (response.accessToken) {
 			this.setState(state => ({
 				isLogin: true,
-				name: response.profileObj.givenName
+				name: response.profileObj.givenName,
+				email: response.profileObj.email
 			}));
 		}
 	}
