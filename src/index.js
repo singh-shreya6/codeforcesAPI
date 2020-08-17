@@ -229,12 +229,32 @@ export class Home extends React.Component {
 	login(response) {
 		console.log(response);
 		if (response.accessToken) {
+			const email = response.profileObj.email;
+			fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
+					method: 'POST',
+					headers:{
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						email
+					})
+				})
+					.then(response => response.json())
+					.then(data =>{ 
+						let handle = get(data, 'handle', '')
+						this.setState({
+							handle
+						})
+					});
 			this.setState(state => ({
 				isLogin: true,
 				name: response.profileObj.givenName,
-				email: response.profileObj.email
+				email
 			}));
+			
 		}
+		
+		console.log(this.state.email);
 	}
 
 	logout(response) {
@@ -274,14 +294,15 @@ export class Home extends React.Component {
 					problemSet: problems
 				});
 			});
+			console.log(this.state.email);
 			if (!isEmpty(this.state.email)) {
-				fetch('http://localhost:8000/getUser/', {
+				fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
 					method: 'POST',
 					headers:{
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						email: this.state.email
+						email: "rest@g.com"
 					})
 				})
 					.then(response => response.json())
