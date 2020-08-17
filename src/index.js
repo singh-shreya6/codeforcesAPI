@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import Problems from './problems';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import maxresdefault from './images/maxresdefault.jpg';
@@ -27,7 +28,8 @@ export class Home extends React.Component {
 			isLogin: false,
 			name: "",
 			isEditModalOpen: false,
-			email: ""
+			email: "",
+			handle: ""
 		};
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
@@ -272,6 +274,22 @@ export class Home extends React.Component {
 					problemSet: problems
 				});
 			});
+			if (!isEmpty(this.state.email)) {
+				fetch('http://localhost:8000/getUser/', {
+					method: 'POST',
+					headers:{
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						email: this.state.email
+					})
+				})
+					.then(response => response.json())
+					.then(data => this.setState({
+						handle : get(data, 'handle', '')
+					}));
+			}
+
 		//	this.checkCookie(); TO BE USED when we need cookies
 
 	}
