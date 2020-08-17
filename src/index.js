@@ -227,7 +227,6 @@ export class Home extends React.Component {
 	*/
 
 	login(response) {
-		console.log(response);
 		if (response.accessToken) {
 			const email = response.profileObj.email;
 			fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
@@ -253,8 +252,6 @@ export class Home extends React.Component {
 			}));
 			
 		}
-		
-		console.log(this.state.email);
 	}
 
 	logout(response) {
