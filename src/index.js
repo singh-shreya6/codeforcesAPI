@@ -4,7 +4,6 @@ import './index.css';
 import './api-enm';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import get from 'lodash/get';
@@ -17,6 +16,10 @@ import graph_theory from './images/graph_theory.jpg';
 import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
 import SearchPage from './searchPage';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Popover from '@material-ui/core/Popover';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -29,7 +32,9 @@ export class Home extends React.Component {
 			name: "",
 			isEditModalOpen: false,
 			email: "",
-			handle: ""
+			handle: "",
+			handleText: "",
+			anchor: null
 		};
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
@@ -79,6 +84,7 @@ export class Home extends React.Component {
 							Profile Tracker
         				</Nav.Link>
 					</Nav.Item>
+					{this.getPopover()}
 				</Nav>
 				<div className="user_info">
 					{this.state.name ? <h5>Welcome {this.state.name}</h5> : null}
@@ -94,6 +100,66 @@ export class Home extends React.Component {
 				/>
 			</Navbar>
 		);
+	}
+
+	
+
+	getPopover() {
+
+  		const handleClick = (event) => {
+			  this.setState({
+				  anchor: event.currentTarget
+			  });
+		  };
+		
+		  const handleClose = () => {
+			this.setState({
+				anchor: null
+			});
+		  };
+		
+		  const open = Boolean(this.state.anchor);
+		  const id = open ? 'simple-popover' : undefined;
+		
+		  return (
+			<div>
+			  <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+				Open Popover
+			  </Button>
+			  <Popover
+				id={id}
+				open={open}
+				anchorEl={this.state.anchor}
+				onClose={handleClose}
+				anchorOrigin={{
+				  vertical: 'bottom',
+				  horizontal: 'center',
+				}}
+				transformOrigin={{
+				  vertical: 'top',
+				  horizontal: 'center',
+				}}
+			  >
+				<Typography>Enter your CF handle: </Typography>
+				<TextareaAutosize 
+				aria-label="empty textarea" 
+				placeholder="Empty" 
+				onChange={e => this.handleCFhandleOnChange(e)}
+				value={this.state.handleText}
+				/>
+				<br />
+			<Button aria-describedby={id}  color="primary" onClick={handleClick}>
+				Submit
+			  </Button>
+			  </Popover>
+			</div>
+		  );
+	}
+
+	handleCFhandleOnChange(e) {
+		this.setState({
+			handleText: e.target.value
+		});
 	}
 
 	createTagsCardView() {
@@ -228,6 +294,7 @@ export class Home extends React.Component {
 
 	login(response) {
 		if (response.accessToken) {
+			console.log(response);
 			const email = response.profileObj.email;
 			fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
 					method: 'POST',
@@ -242,7 +309,8 @@ export class Home extends React.Component {
 					.then(data =>{ 
 						let handle = get(data, 'handle', '')
 						this.setState({
-							handle
+							handle,
+							handleText: handle
 						})
 					});
 			this.setState(state => ({
