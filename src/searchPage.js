@@ -81,7 +81,7 @@ class SearchPage extends React.Component {
             return (
                 <div>
                     <div className="search_bar" >
-                        <label> Enter Codeforces Handle:  </label>
+                        <label className= "navlink"> Enter Codeforces Handle:  </label>
                         <InputGroup className="handle_textbox">
                             <FormControl
                                 size="sm"

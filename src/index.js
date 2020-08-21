@@ -69,7 +69,7 @@ export class Home extends React.Component {
 
 	createNavBarView() {
 		return (
-			<Navbar bg="dark" variant="dark" fixed="top">
+			<Navbar className="color-nav" variant="dark" fixed="top">
 				<Navbar.Brand href="/">Online Judge</Navbar.Brand>
 				<Nav activeKey={this.state.isPageOpen} onSelect={e => this.changePageSelected(e)} className="navbar-links">
 					<NavDropdown title="Tracks" id="nav-dropdown">
@@ -80,7 +80,7 @@ export class Home extends React.Component {
 						<NavDropdown.Item eventKey="5">Track E</NavDropdown.Item>
 					</NavDropdown>
 					<Nav.Item>
-						<Nav.Link eventKey="6" href="#profiles">
+						<Nav.Link eventKey="6" href="#profiles" className = "navlink">
 							Profile Tracker
         				</Nav.Link>
 					</Nav.Item>
@@ -181,7 +181,7 @@ export class Home extends React.Component {
 										Binary Search is a search algorithm that finds the position of a target value within a sorted array.
 									</Card.Text>
 								</div>
-								<Button variant="primary" onClick={() => this.handleClick(0)}>Start Solving!</Button>
+								<Button className="custom" onClick={() => this.handleClick(0)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
 						<Card style={{ width: '20%', margin: '0 2rem 0 0' }}>
@@ -193,7 +193,7 @@ export class Home extends React.Component {
 										A powerful algorithmic optimization technique utilising the result of smaller subproblems.
 									</Card.Text>
 								</div>
-								<Button variant="primary" onClick={() => this.handleClick(1)}>Start Solving!</Button>
+								<Button className="custom" onClick={() => this.handleClick(1)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
 						<Card style={{ width: '20%' }}>
@@ -205,7 +205,7 @@ export class Home extends React.Component {
 										A graph is a non-linear data structure of a set of objects where some pairs of the objects are in some sense related.
 									</Card.Text>
 								</div>
-								<Button variant="primary" onClick={() => this.handleClick(2)}>Start Solving!</Button>
+								<Button className="custom" onClick={() => this.handleClick(2)}>Start Solving!</Button>
 							</Card.Body>
 						</Card>
 					</div>

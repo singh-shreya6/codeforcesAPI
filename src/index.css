@@ -79,3 +79,16 @@
   width: 15rem !important;
   margin-left: 1rem;
 }
+
+.color-nav {
+    background-color:rgb(120, 174, 45);
+    font-weight: bold;
+}
+
+.custom {
+    background-color: #7caf3c !important;
+}
+
+.navlink, #nav-dropdown {
+    color: white !important;
+}
