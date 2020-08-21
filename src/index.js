@@ -17,9 +17,11 @@ import ProblemsByTag from './problemsByTag';
 import GoogleBtn from './GoogleBtn';
 import SearchPage from './searchPage';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button';
 import Popover from '@material-ui/core/Popover';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import FormControl from 'react-bootstrap/FormControl';
+import Form from 'react-bootstrap/Form';
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -80,7 +82,7 @@ export class Home extends React.Component {
 						<NavDropdown.Item eventKey="5">Track E</NavDropdown.Item>
 					</NavDropdown>
 					<Nav.Item>
-						<Nav.Link eventKey="6" href="#profiles" className = "navlink">
+						<Nav.Link eventKey="6" href="#profiles" className="navlink">
 							Profile Tracker
         				</Nav.Link>
 					</Nav.Item>
@@ -102,58 +104,15 @@ export class Home extends React.Component {
 		);
 	}
 
-	
+
 
 	getPopover() {
-
-  		const handleClick = (event) => {
-			  this.setState({
-				  anchor: event.currentTarget
-			  });
-		  };
-		
-		  const handleClose = () => {
-			this.setState({
-				anchor: null
-			});
-		  };
-		
-		  const open = Boolean(this.state.anchor);
-		  const id = open ? 'simple-popover' : undefined;
-		
-		  return (
-			<div>
-			  <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
-				Open Popover
-			  </Button>
-			  <Popover
-				id={id}
-				open={open}
-				anchorEl={this.state.anchor}
-				onClose={handleClose}
-				anchorOrigin={{
-				  vertical: 'bottom',
-				  horizontal: 'center',
-				}}
-				transformOrigin={{
-				  vertical: 'top',
-				  horizontal: 'center',
-				}}
-			  >
-				<Typography>Enter your CF handle: </Typography>
-				<TextareaAutosize 
-				aria-label="empty textarea" 
-				placeholder="Empty" 
-				onChange={e => this.handleCFhandleOnChange(e)}
-				value={this.state.handleText}
-				/>
-				<br />
-			<Button aria-describedby={id}  color="primary" onClick={handleClick}>
-				Submit
-			  </Button>
-			  </Popover>
-			</div>
-		  );
+		return (
+			<Form inline>
+				<FormControl type="text" placeholder="Enter your handle" className="mr-sm-2" />
+				<Button variant="outline-light">Submit</Button>
+			</Form>
+		);
 	}
 
 	handleCFhandleOnChange(e) {
@@ -297,28 +256,28 @@ export class Home extends React.Component {
 			console.log(response);
 			const email = response.profileObj.email;
 			fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
-					method: 'POST',
-					headers:{
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						email
-					})
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email
 				})
-					.then(response => response.json())
-					.then(data =>{ 
-						let handle = get(data, 'handle', '')
-						this.setState({
-							handle,
-							handleText: handle
-						})
-					});
+			})
+				.then(response => response.json())
+				.then(data => {
+					let handle = get(data, 'handle', '')
+					this.setState({
+						handle,
+						handleText: handle
+					})
+				});
 			this.setState(state => ({
 				isLogin: true,
 				name: response.profileObj.givenName,
 				email
 			}));
-			
+
 		}
 	}
 
@@ -359,22 +318,22 @@ export class Home extends React.Component {
 					problemSet: problems
 				});
 			});
-			console.log(this.state.email);
-			if (!isEmpty(this.state.email)) {
-				fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
-					method: 'POST',
-					headers:{
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						email: "rest@g.com"
-					})
+		console.log(this.state.email);
+		if (!isEmpty(this.state.email)) {
+			fetch('https://morning-peak-18009.herokuapp.com/getUser/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: "rest@g.com"
 				})
-					.then(response => response.json())
-					.then(data => this.setState({
-						handle : get(data, 'handle', '')
-					}));
-			}
+			})
+				.then(response => response.json())
+				.then(data => this.setState({
+					handle: get(data, 'handle', '')
+				}));
+		}
 
 		//	this.checkCookie(); TO BE USED when we need cookies
 
